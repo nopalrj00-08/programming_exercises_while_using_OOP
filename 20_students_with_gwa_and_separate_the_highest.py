@@ -12,5 +12,9 @@ class Separate:
                 if gwa > highest_gwa:
                     highest_gwa = gwa
                     highest_student = name
-                    
+        if highest_student:
+            print(f"{highest_student.capitalize()} is the highest, with the highest gwa: {highest_gwa}")
+        else:
+            print(f"there is no highest gwa")
+    
 
