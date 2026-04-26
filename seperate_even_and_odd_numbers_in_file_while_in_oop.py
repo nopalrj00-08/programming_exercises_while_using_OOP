@@ -7,7 +7,6 @@ class Sorter:
         with open(self.numbers_file,"w") as numbers:
             for i in range(1,21):
                 numbers.write(f'{i}\n')
-
     def main_process(self):
         try:
             with(open(self.numbers_file,"r")) as my_file:
