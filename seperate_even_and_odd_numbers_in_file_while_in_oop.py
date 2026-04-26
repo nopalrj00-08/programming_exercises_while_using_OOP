@@ -3,6 +3,11 @@ class Sorter:
         self.numbers_file = numbers_file
         self.even_output = even_output
         self.odd_output = odd_output
+    def prepare_file(self):
+        with open(self.numbers_file,"w") as numbers:
+            for i in range(1,21):
+                numbers.write(f'{i}\n')
+
     def main_process(self):
         try:
             with(open(self.numbers_file,"r")) as my_file:
@@ -15,13 +20,14 @@ class Sorter:
                         odd_file.write(f'{num}\n')
             print("Processing complete: even_output.txt and odd_output.txt files have been created.")
         except FileNotFoundError:
-            print(f"The file {my_file} was not found.")
+            print(f"The file {self.numbers_file} was not found.")
         except ValueError:
             print(f"The file contains non-integer values.")
 if __name__ == "__main__":
     sorter = Sorter("numbers.txt","even_output.txt","odd_output.txt")
+    sorter.prepare_file()
     sorter.main_process()
-    
+
 
 
 
