@@ -10,12 +10,19 @@ class Separate:
                     line = line.strip()
                     name = line.split()[0]
                     gwa = float(line.split()[1])
-                    if gwa > highest_gwa:
+                    if highest_gwa < gwa:
                         highest_gwa = gwa
                         highest_student = name
-        if highest_student:
-            print(f"{highest_student.capitalize()} is the highest, with the highest gwa: {highest_gwa}")
-        else:
-            print(f"there is no highest gwa")
+            if highest_student:
+                print(f"{highest_student.capitalize()} is the highest, with the highest gwa: {highest_gwa}")
+            else:
+                print(f"there is no highest gwa")
+        except FileNotFoundError:
+            print(f"there is no {self.students_file}")
+        except ValueError:
+            print(f"One of the students gwa is not a number")
+if __name__ == '__main__':
+    seperator = Separate("students.txt")
+    seperator.find_highest_gwa()
 
 
