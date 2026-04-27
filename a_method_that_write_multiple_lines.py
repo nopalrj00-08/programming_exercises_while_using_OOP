@@ -1,6 +1,3 @@
-from numpy.ma.core import append
-
-
 class Writer:
     def __init__(self,writer_file):
         self.writer_file = writer_file
@@ -11,4 +8,6 @@ class Writer:
         while True:
             lines_data = input("Enter line:\033[32m")
             data_lines.append(lines_data)
-            choice_input = input("")
+            choice_input = input("Are there more lines y/n?")
+            if choice_input != "y":
+                break
