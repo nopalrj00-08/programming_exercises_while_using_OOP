@@ -8,9 +8,11 @@ class Separate:
             with open(self.students_file,'r') as student_file:
                 for line in student_file:
                     line = line.strip()
-                    name = line.split()[0]
-                    gwa = float(line.split()[1])
-                    if highest_gwa < gwa:
+                    parts = line.split()
+                    name = parts[0]
+                    gwa = float(parts[1])
+
+                    if highest_gwa >= gwa:
                         highest_gwa = gwa
                         highest_student = name
             if highest_student:
