@@ -7,9 +7,10 @@ class Seperator:
         self.odds_cubes = odds_cubes
         self.integers_file = integers_file
     def prepare_file(self):
-        with open(self.integers_file, "w") as int_file:
-            for integer in range(1,21):
-                int_file.write(f"{integer}\n")
+        try:
+            with open(self.integers_file, "w") as int_file:
+                for integer in range(1,21):
+                    int_file.write(f"{integer}\n")
     def square_calculation(self):
         with open(self.integers_file, "r") as even_file:
             numbers = [int(line.strip()) for line in even_file if line.strip()]
